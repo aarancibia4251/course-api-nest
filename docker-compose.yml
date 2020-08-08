@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: "development"
+    working_dir: home/node/app
+    volumes:
+      - /app/node_modules
+      - ./dist:/app
+    depends_on:
+      - "course-db"
+
+  course-db:
+    image: "postgres:11"
+    ports:
+      - "4052:5432"
+    restart: always
+    environment:
+        POSTGRES_PASSWORD: "1234"
+        POSTGRES_USER: "postgres"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

@@ -1,0 +1,10 @@
+#server:
+#  host: '1111'
+
+db:
+  database: 'CourseDbDev'
+  host: 'localhost'
+  username: 'postgres'
+  password: '1234'
+  synchronize: true
+  entities: './dist/**/*.entity.js'

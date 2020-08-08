@@ -1,0 +1,8 @@
+server:
+  port: 4000
+
+db:
+  name: 'default'
+  port: 4052
+  type: 'postgres'
+  logging: true
