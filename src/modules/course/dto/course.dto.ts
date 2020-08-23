@@ -3,5 +3,6 @@ export interface CourseDto {
   Nombre: string;
   Precio: number;
   FechaRegistro: Date;
+  FechaCreacion: Date;
   FechaModificacion: Date;
 }

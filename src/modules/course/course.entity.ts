@@ -21,12 +21,17 @@ export class CourseEntity {
   price: number;
 
   @CreateDateColumn({
-    name: 'Created'
+    name: 'FechaRegistro'
+  })
+  register: Date;
+
+  @CreateDateColumn({
+    name: 'FechaCreacion'
   })
   created: Date;
 
   @UpdateDateColumn({
-    name: 'Updated',
+    name: 'FechaModificacion',
   })
   updated: Date;
 

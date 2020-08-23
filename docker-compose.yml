@@ -1,20 +1,20 @@
 version: '3.1'
 services:
-  api:
-    build:
-      dockerfile: Dockerfile.dev
-      context: .
-    restart: always
-    ports:
-      - "4000:4000"
-    environment:
-      NODE_ENV: "development"
-    working_dir: home/node/app
-    volumes:
-      - /app/node_modules
-      - ./dist:/app
-    depends_on:
-      - "course-db"
+  # api:
+  #   build:
+  #     dockerfile: Dockerfile.dev
+  #     context: .
+  #   restart: always
+  #   ports:
+  #     - "4000:4000"
+  #   environment:
+  #     NODE_ENV: "development"
+  #   working_dir: home/node/app
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./dist:/app
+  #   depends_on:
+  #     - "course-db"
 
   course-db:
     image: "postgres:11"
