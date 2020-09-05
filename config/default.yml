@@ -3,6 +3,6 @@ server:
 
 db:
   name: 'default'
-  port: 4052
+  port: 5432
   type: 'postgres'
   logging: true

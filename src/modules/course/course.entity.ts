@@ -20,18 +20,21 @@ export class CourseEntity {
   })
   price: number;
 
-  @CreateDateColumn({
-    name: 'FechaRegistro'
+  @Column({
+    name: 'FechaRegistro',
+    type: 'timestamp with time zone'
   })
   register: Date;
 
   @CreateDateColumn({
-    name: 'FechaCreacion'
+    name: 'FechaCreacion',
+    type: 'timestamp with time zone'
   })
   created: Date;
 
   @UpdateDateColumn({
     name: 'FechaModificacion',
+    type: 'timestamp with time zone'
   })
   updated: Date;
 

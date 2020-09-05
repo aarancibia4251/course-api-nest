@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CourseEntity } from '../course.entity';
-import { Repository } from 'typeorm';
+import { Repository, MoreThanOrEqual, Raw } from 'typeorm';
 import { CourseDto } from '../dto/course.dto';
 import {CourseMapper} from "../../../common/mapper/CourseMapper";
+import { DateHelpers } from 'src/common/utils/date-helpers';
 
 @Injectable()
 export class CourseService {
@@ -13,8 +14,10 @@ export class CourseService {
   ) {
   }
 
-  async getCourses(): Promise<Array<CourseDto>> {
-    const courses = await this.courseRepository.find();
+  async getCourses(dateSync: Date): Promise<Array<CourseDto>> {
+    const courses = await this.courseRepository.find({
+      updated: Raw(alias => `${alias} >= '${dateSync}'::timestamptz`)
+    });
     return this.courseMapper.mapperFromListEntityToListRO(courses);
   }
 

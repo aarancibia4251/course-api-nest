@@ -8,9 +8,9 @@ export class CourseMapper implements AdapterMapper<CourseEntity, CourseDto> {
             Id: item.id,
             Nombre: item.name,
             Precio: item.price,
-            FechaRegistro: item.register,
-            FechaCreacion: item.created,
-            FechaModificacion: item.updated
+            FechaRegistro: item.register.toISOString(),
+            FechaCreacion: item.created.toISOString(),
+            FechaModificacion: item.updated.toISOString()
         } as CourseDto;
     }
 
