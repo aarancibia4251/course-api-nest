@@ -14,7 +14,6 @@ export class CourseController {
   public async getCourses(
     @Query('dateSync') dateSync: Date
   ) {
-    console.log(dateSync);
     return await this.courseService.getCourses(dateSync);
   }
 

@@ -16,7 +16,12 @@ export class CourseService {
 
   async getCourses(dateSync: Date): Promise<Array<CourseDto>> {
     const courses = await this.courseRepository.find({
-      updated: Raw(alias => `${alias} >= '${dateSync}'::timestamptz`)
+      updated: Raw(alias => {
+        if (dateSync) {
+          return `${alias} >= '${dateSync}'::timestamptz`;
+        }
+        return null;
+      })
     });
     return this.courseMapper.mapperFromListEntityToListRO(courses);
   }

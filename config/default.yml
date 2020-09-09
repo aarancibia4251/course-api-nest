@@ -1,8 +1,7 @@
 server:
-  port: 3000
+  port: 4000
 
 db:
   name: 'default'
-  port: 5432
   type: 'postgres'
   logging: true

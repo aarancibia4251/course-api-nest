@@ -14,7 +14,7 @@ module.exports = {
   "logging": data.logging,
   "synchronize": data.synchronize,
   "entities": [data.entities],
-  "ssl": {
-    rejectUnauthorized: false
-  }
+  // "ssl": {
+  //   rejectUnauthorized: false
+  // }
 }
