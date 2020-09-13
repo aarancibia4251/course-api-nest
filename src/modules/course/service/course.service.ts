@@ -37,6 +37,7 @@ export class CourseService {
         price: courseDto.Precio,
         register: courseDto.FechaRegistro,
         created: existCourse.created,
+        updated: courseDto.FechaModificacion
       });
     } else {
       const newCourse = await this.courseRepository.create({
@@ -44,6 +45,7 @@ export class CourseService {
         name: courseDto.Nombre,
         price: courseDto.Precio,
         register: courseDto.FechaRegistro,
+        updated: courseDto.FechaModificacion
       });
       await this.courseRepository.save(newCourse);
     }
