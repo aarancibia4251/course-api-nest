@@ -2,10 +2,10 @@
 #  host: '1111'
 
 db:
-  database: 'CourseDbDev'
-  host: 'localhost'
-  username: 'postgres'
-  password: '1234'
-  port: 4052
+  database: 'barbacode_CourseDbDev'
+  host: 'barbacode.com'
+  username: 'barbacode_arancibia'
+  password: 'pG0W3M6I8l'
+  port: 3306
   synchronize: true
   entities: './dist/**/*.entity.js'

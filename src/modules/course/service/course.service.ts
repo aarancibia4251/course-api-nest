@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CourseEntity } from '../course.entity';
-import { Repository, MoreThanOrEqual, Raw } from 'typeorm';
+import { Repository, Raw } from 'typeorm';
 import { CourseDto } from '../dto/course.dto';
 import {CourseMapper} from "../../../common/mapper/CourseMapper";
-import { DateHelpers } from 'src/common/utils/date-helpers';
 
 @Injectable()
 export class CourseService {
@@ -18,7 +17,7 @@ export class CourseService {
     const courses = await this.courseRepository.find({
       updated: Raw(alias => {
         if (dateSync) {
-          return `${alias} >= '${dateSync}'::timestamptz`;
+          return `${alias} >= '${dateSync}'`;// ::timestamptz for postgres
         }
         return null;
       })
@@ -40,7 +39,7 @@ export class CourseService {
         updated: courseDto.FechaModificacion
       });
     } else {
-      const newCourse = await this.courseRepository.create({
+      const newCourse = this.courseRepository.create({
         id: courseDto.Id,
         name: courseDto.Nombre,
         price: courseDto.Precio,

@@ -3,5 +3,5 @@ server:
 
 db:
   name: 'default'
-  type: 'postgres'
+  type: 'mysql'
   logging: true

@@ -14,7 +14,7 @@ export class CourseEntity {
   })
   name: string;
 
-  @Column('money', {
+  @Column('float', {
     name: 'Precio',
     nullable: true,
   })
@@ -22,19 +22,19 @@ export class CourseEntity {
 
   @Column({
     name: 'FechaRegistro',
-    type: 'timestamp with time zone'
+    type: 'timestamp'
   })
   register: Date;
 
   @CreateDateColumn({
     name: 'FechaCreacion',
-    type: 'timestamp with time zone'
+    type: 'timestamp'
   })
   created: Date;
 
   @UpdateDateColumn({
     name: 'FechaModificacion',
-    type: 'timestamp with time zone'
+    type: 'timestamp'
   })
   updated: Date;
 

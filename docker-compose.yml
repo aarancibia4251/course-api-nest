@@ -15,7 +15,15 @@ services:
   #     - ./dist:/app
   #   depends_on:
   #     - "course-db"
-
+  course_db:
+    image: mysql
+    restart: always
+    volumes:
+      - /Users/aarancis/WebstormProjects/projects/course-api-nest/data:/var/lib/mysql
+    ports:
+      - "33006:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
   course-db:
     image: "postgres:11"
     ports:
