@@ -1,7 +1,0 @@
-server:
-  port: 4000
-
-db:
-  name: 'default'
-  type: 'mysql'
-  logging: true

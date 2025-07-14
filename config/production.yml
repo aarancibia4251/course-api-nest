@@ -1,8 +1,0 @@
-db:
-  database: 'denoc9aaucmnc'
-  host: 'ec2-52-86-116-94.compute-1.amazonaws.com'
-  username: 'fawnbizglsngyd'
-  password: 'dbc71a4f039ef57d3aacf1d111d9c31e536ff7c98895dc054821725f59a229c1'
-  port: 5432
-  synchronize: true
-  entities: './dist/**/*.entity.js'

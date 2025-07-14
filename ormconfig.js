@@ -1,19 +1,20 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const config = require('config');
+const dotenv = require('dotenv');
+const environment = process.env.NODE_ENV;
 
-const data = config.get('db');
+dotenv.config({
+  path: `cfg/${environment}.env`,
+});
 
 module.exports = {
-  "name": data.name,
-  "type": data.type,
-  "host": data.host,
-  "port": data.port,
-  "username": data.username,
-  "password": data.password,
-  "database": data.database,
-  "logging": data.logging,
-  "synchronize": data.synchronize,
-  "entities": [data.entities],
+  host: process.env.TYPEORM_HOST,
+  name: process.env.TYPEORM_NAME,
+  type: process.env.TYPEORM_TYPE,
+  username: process.env.TYPEORM_USERNAME,
+  password: process.env.TYPEORM_PASSWORD,
+  database: process.env.TYPEORM_DATABASE,
+  synchronize: Boolean(process.env.TYPEORM_SYNCHRONIZE),
+  logging: Boolean(process.env.TYPEORM_LOGGING),
+  entities: [process.env.TYPEORM_ENTITIES],
   // "ssl": {
   //   rejectUnauthorized: false
   // }
