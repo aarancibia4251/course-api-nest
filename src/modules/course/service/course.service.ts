@@ -19,7 +19,7 @@ export class CourseService {
         if (dateSync) {
           return `${alias} >= '${dateSync}'`;// ::timestamptz for postgres
         }
-        return null;
+        return '';
       })
     });
     return this.courseMapper.mapperFromListEntityToListRO(courses);

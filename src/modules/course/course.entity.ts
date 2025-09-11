@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity('Curso', { schema: 'Administracion' })
+@Entity('Curso')
 export class CourseEntity {
 
   @PrimaryColumn({

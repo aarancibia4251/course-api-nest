@@ -1,38 +1,14 @@
 version: '3.1'
 services:
-  # api:
-  #   build:
-  #     dockerfile: Dockerfile.dev
-  #     context: .
-  #   restart: always
-  #   ports:
-  #     - "4000:4000"
-  #   environment:
-  #     NODE_ENV: "development"
-  #   working_dir: home/node/app
-  #   volumes:
-  #     - /app/node_modules
-  #     - ./dist:/app
-  #   depends_on:
-  #     - "course-db"
-  course_db:
-    image: mysql
-    restart: always
-    volumes:
-      - /Users/aarancis/WebstormProjects/projects/course-api-nest/data:/var/lib/mysql
-    ports:
-      - "33006:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: 1234
   course-db:
-    image: "postgres:11"
+    image: postgres
+    container_name: course-db
     ports:
-      - "4052:5432"
+      - "5432:5432"
     restart: always
     environment:
         POSTGRES_PASSWORD: "1234"
-        POSTGRES_USER: "postgres"
-
+        POSTGRES_DB: course
   # adminer:
   #   image: adminer
   #   restart: always
